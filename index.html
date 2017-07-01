@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML Entities</title>
+  <style>
+    :root {
+      --size: 60px;
+      --color: #00AFE8;
+    }
+
+    #list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+    }
+
+    #list > li {
+      position: relative;
+      width: var(--size);
+      height: var(--size);
+      margin: 0 10px 10px 0;
+      background: #EEE;
+      text-align: center;
+    }
+
+    .char {
+      font-size: 2em;
+      line-height: var(--size);
+    }
+
+    .detail {
+      list-style: none;
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      z-index: 1;
+      padding: 2px 10px;
+      background: var(--color);
+      color: white;
+      line-height: 1.5;
+    }
+
+    .detail a {
+      color: white;
+    }
+
+    .toggle {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      --length: 30px;
+      border-bottom: var(--length) solid var(--color);
+      border-left: var(--length) solid transparent;
+      background: transparent;
+    }
+
+    #list > li:hover > .toggle {
+      display: block;
+    }
+
+    .popup .detail {
+      display: block;
+    }
+
+    .popup .toggle {
+      display: block;
+    }
+
+    .popup-right .detail {
+      right: auto;
+      left: 100%;
+    }
+
+    #notfound {
+      color: red;
+      display: none;
+    }
+
+    #notfound.show {
+      display: inline;
+    }
+  </style>
+</head>
+<body>
+
+<p>
+  <input type="text" id="input" spellcheck="false">
+  <span id="char"></span>
+  <span id="notfound">Not found.</span>
+</p>
+
+<ul id="list"></ul>
+
+<img src="loading-spinning-bubbles.svg" alt="Loading icon" id="loading">
+
+<p>Resources</p>
+<ul>
+  <li><a href="https://html.spec.whatwg.org/multipage/named-characters.html">HTML Standard: Named character references</a></li>
+</ul>
+
+<p>Made by Ivan Yan, <a href="https://github.com/yanxyz/html-entities">file an issue</a>.</p>
+
+<script src="script.js"></script>
+</body>
+</html>
